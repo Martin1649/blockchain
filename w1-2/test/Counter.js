@@ -36,7 +36,6 @@ describe("Counter", function () {
 
   it("count_with_revert", async function () {
     let counter2 = counter.connect(otherAccount);
-    
     expect(counter2.count()).to.be.revertedWith("invalid call");
   });
 });

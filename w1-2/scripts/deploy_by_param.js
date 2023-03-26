@@ -1,36 +1,27 @@
+const hre = require("hardhat");
 const { ethers, network, artifacts } = require("hardhat");
-require('hardhat-abi-exporter');
+
 
 
 const { writeAbiAddr } = require('./artifact_saver.js');
 
+const prams = process.argv
+const value = prams[2]
 
-const contantJson = require('./contants.json');
+console.log("Counter deploy with value:", value);
 
 async function main() {
-  // await hre.run('compile');
+  await hre.run('compile');
   const Counter = await ethers.getContractFactory("Counter");
-  const initVal = contantJson[network.name];
-
-
-  console.log(initVal);
-  console.log(initVal.INIT);
-
-  const counter = await Counter.deploy(initVal.INIT);
-
+  const counter = await Counter.deploy(value);
 
   await counter.deployed();
-  // tx.wait();
-
   console.log("Counter deployed to:", counter.address);
-
-  let tx = await counter.count();
-  await tx.wait();
 
   let Artifact = await artifacts.readArtifact("Counter");
   await writeAbiAddr(Artifact, counter.address, "Counter", network.name);
 
-  console.log(`Please verify: npx hardhat verify ${counter.address}` );
+  console.log(`Please verify: npx hardhat verify ${counter.address}`);
 
 }
 
@@ -40,7 +31,3 @@ main()
     console.error(error);
     process.exit(1);
   });
-
-
-
-

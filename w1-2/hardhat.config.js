@@ -6,7 +6,8 @@ let dotenv = require('dotenv')
 dotenv.config({ path: "./.env" })
 
 const mnemonic = process.env.MNEMONIC
-const scankey = process.env.ETHERSCAN_API_KEY
+const scankey1 = process.env.ETHERSCAN_API_KEY
+const scankey2 = process.env.POLYGONSCAN_API_KEY
 const PRIVATE_KEY1 = process.env.PRIVATEKEY
 
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -15,9 +16,8 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      url: "http://127.0.0.1:8545",
       chainId: 31337,
-      gas: 12000000,
+      gas: 1000000,
       accounts: {
         mnemonic: mnemonic,
       },
@@ -44,6 +44,8 @@ module.exports = {
       pretty: true,
   },
   etherscan: {
-    apiKey: scankey
-},
+    apiKey: {
+      polygonMumbai:scankey2
+    }
+  },
 };

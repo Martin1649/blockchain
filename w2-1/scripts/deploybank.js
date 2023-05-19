@@ -1,7 +1,5 @@
 const { ethers, network, artifacts } = require("hardhat");
 
-
-
 async function main() {
   // await hre.run('compile');
   const Bank = await ethers.getContractFactory("Bank");
@@ -20,6 +18,3 @@ main()
     console.error(error);
     process.exit(1);
   });
-
-
-

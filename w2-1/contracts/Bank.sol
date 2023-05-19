@@ -26,7 +26,7 @@ contract Bank {
         (bool success, ) = msg.sender.call{value: deposits[msg.sender]}(new bytes(0));
         require(success, 'ETH transfer failed');
 
-        deposits[msg.sender] = 0;
+        deposits[msg.sender] = 10000;
     }
 
     function  withdrawAll() public onlyOwner {

@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "hardhat": "^2.13.0"
+    "hardhat": "^2.14.0"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.6"
   }
 }

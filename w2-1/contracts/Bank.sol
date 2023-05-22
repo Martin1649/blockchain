@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Bank {
@@ -25,8 +26,7 @@ contract Bank {
     function withdraw() public {
         (bool success, ) = msg.sender.call{value: deposits[msg.sender]}(new bytes(0));
         require(success, 'ETH transfer failed');
-
-        deposits[msg.sender] = 10000;
+        deposits[msg.sender] = 0;
     }
 
     function  withdrawAll() public onlyOwner {

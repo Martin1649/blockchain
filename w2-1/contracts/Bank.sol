@@ -23,5 +23,9 @@ contract Bank_1 {
 
         payable(msg.sender).transfer(amount); // 转账给用户
     }
-    
+
+        // 获取合约地址的余额
+    function getBalance() external view returns (uint256) {
+        return address(this).balance;
+    }
 }

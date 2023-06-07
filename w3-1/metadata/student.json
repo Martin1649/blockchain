@@ -1,0 +1,17 @@
+{
+    "name": "登链社区2", 
+    "description": "This is my NFT", 
+    "image": "ipfs://QmTSnHKaGhnrgzsowgDFG3TJbrJAnsiHC79G4vgEPw2Shy", 
+    "attributes": [
+      {
+        "trait_type": "Color", 
+        "value": "Red" 
+      },
+      {
+        "trait_type": "Size", 
+        "value": "Medium" 
+      }
+    ],
+    "version":"1"
+  }
+  
